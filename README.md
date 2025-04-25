@@ -5,6 +5,9 @@ g++ mainv1.cpp -o solar_system -framework OpenGL -framework GLUT
 
 gcc mainv1.c -o solar_system -framework OpenGL -framework GLUT
 
+g++ mainv1.cpp -o solar_system.exe -lfreeglut -lopengl32 -lglu32
+
+
 In OpenGL, the Z-buffer value for each object (or planet in your case) is determined by the object's position in 3D space relative to the camera's viewpoint. Specifically, the Z-buffer value is determined by the Z-coordinate of each object after it has been transformed by the model-view matrix and the perspective projection.
 
 In your program, each planet has a certain distance from the origin (the sun), and its Z-buffer value will depend on its position relative to the camera.
