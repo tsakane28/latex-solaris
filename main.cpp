@@ -1,7 +1,15 @@
+#ifdef __APPLE__
+#include <GLUT/glut.h>
+#else
 #include <GL/glut.h>
+#endif
 #include <stdlib.h>
 #include <math.h>
 #include <time.h>
+#include <string.h>
+#include <iostream>
+
+#define VERSION "1.0.0"
 
 static int slices = 50;
 static int stacks = 50;
@@ -230,6 +238,12 @@ static void idle(void)
 
 int main(int argc, char *argv[])
 {
+    // Check for version flag
+    if (argc > 1 && (strcmp(argv[1], "--version") == 0 || strcmp(argv[1], "-v") == 0)) {
+        std::cout << "solar-system version " << VERSION << std::endl;
+        return 0;
+    }
+
     initStarPositions();
     glutInit(&argc, argv);
     glutInitWindowSize(800, 600);

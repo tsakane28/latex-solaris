@@ -1,7 +1,51 @@
-g++ mainv1.cpp -o solar_system -framework OpenGL -framework GLUT
+# Solar System Simulation
 
+A 3D solar system simulation using OpenGL/GLUT.
+
+## Installation Options
+
+### Traditional Compilation
+```
+g++ main.cpp -o solar_system -framework OpenGL -framework GLUT
 ./solar_system
+```
 
+### Using Homebrew
+You can install this application using Homebrew:
+
+#### Option 1: Quick Installation
+Run the provided installation script:
+```
+./install-with-brew.sh
+```
+
+#### Option 2: Manual Installation
+1. If you haven't already, install Homebrew:
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+2. Install the freeglut dependency:
+```
+brew install freeglut
+```
+
+3. Install the application from the local formula:
+```
+brew install --build-from-source ./solar-system.rb
+```
+
+## Usage
+Once installed, you can run the application:
+```
+solar-system
+```
+
+### Controls
+- Arrow keys: Rotate the view
+- '+'/'-': Zoom in/out
+- 'Enter': Pause/Resume simulation
+- 'q' or 'ESC': Quit
 
 In OpenGL, the Z-buffer value for each object (or planet in your case) is determined by the object's position in 3D space relative to the camera's viewpoint. Specifically, the Z-buffer value is determined by the Z-coordinate of each object after it has been transformed by the model-view matrix and the perspective projection.
 
@@ -10,11 +54,11 @@ In your program, each planet has a certain distance from the origin (the sun), a
 Determining the Z-buffer Value for Each Planet:
 Each planet is rendered using the glutSolidSphere function, which places the planet at a specific (x, y, z) coordinate in 3D space. After this position is transformed (by rotations and translations), the Z-buffer value is determined by the transformed Z-coordinate.
 
-Here’s how the Z-buffer value is influenced:
+Here's how the Z-buffer value is influenced:
 
 1. Planet's Position:
 
-* In your code, planets are drawn using drawPlanet(), and each planet’s position is controlled by the distance variable, which is the distance from the sun (the origin):
+* In your code, planets are drawn using drawPlanet(), and each planet's position is controlled by the distance variable, which is the distance from the sun (the origin):
 
 ```drawPlanet(planets[i].distance, planets[i].size, angles[i], planets[i].r, planets[i].g, planets[i].b)```
 
@@ -22,7 +66,7 @@ Here’s how the Z-buffer value is influenced:
 
 2. Camera Transformation:
 
-* The camera position and viewing direction are set by gluLookAt(), which defines where the camera is in the scene and where it’s looking:
+* The camera position and viewing direction are set by gluLookAt(), which defines where the camera is in the scene and where it's looking:
 
 ```gluLookAt(0.0, 15.0, 25.0,0.0, 0.0, 0.0,0.0, 1.0, 0.0)```
 
