@@ -3,7 +3,11 @@ g++ mainv1.cpp -o solar_system -framework OpenGL -framework GLUT
 ./solar_system
 
 
+## HOW TO RUN ON MAC
+
 gcc mainv1.c -o solar_system -framework OpenGL -framework GLUT
+
+## HOW TO RUN ON WINDOWS
 
 g++ mainv1.cpp -o solar_system.exe -lfreeglut -lopengl32 -lglu32
 
