@@ -8,6 +8,42 @@ gcc mainv1.c -o solar_system -framework OpenGL -framework GLUT
 g++ mainv1.cpp -o solar_system.exe -lfreeglut -lopengl32 -lglu32
 
 
+
+
+
+🎈 Bouncing Ball in OpenGL
+This project is a simple OpenGL and GLUT program that displays a red ball bouncing around the screen.
+The ball starts moving when the user presses the spacebar, and it bounces off the window edges.
+The program uses double buffering for smooth animation.
+
+
+🖥️ Features
+White background
+
+Red ball that moves smoothly
+
+Bounces off window edges
+
+Starts moving when spacebar is pressed
+
+Double buffering to prevent flickering
+
+Handles window resizing
+
+📁 Project Structure
+
+
+🛠️ Requirements
+GCC compiler
+
+OpenGL and GLUT libraries
+
+On MacOS, you can use system libraries via frameworks:
+
+OpenGL
+
+GLUT
+
 In OpenGL, the Z-buffer value for each object (or planet in your case) is determined by the object's position in 3D space relative to the camera's viewpoint. Specifically, the Z-buffer value is determined by the Z-coordinate of each object after it has been transformed by the model-view matrix and the perspective projection.
 
 In your program, each planet has a certain distance from the origin (the sun), and its Z-buffer value will depend on its position relative to the camera.
