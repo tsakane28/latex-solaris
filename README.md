@@ -47,50 +47,74 @@ solar-system
 - 'Enter': Pause/Resume simulation
 - 'q' or 'ESC': Quit
 
-## HOW TO RUN ON MAC
+## OpenGL Example Programs
 
-gcc mainv1.c -o solar_system -framework OpenGL -framework GLUT
+This repository also includes three simple OpenGL example programs that demonstrate different concepts:
 
-## HOW TO RUN ON WINDOWS
+### Example 1: Colored Triangle (ex1.c)
+A basic OpenGL demonstration that draws a colored triangle with red, green, and blue vertices.
 
-g++ mainv1.cpp -o solar_system.exe -lfreeglut -lopengl32 -lglu32
+**Compilation and Running:**
+```
+gcc ex1.c -o ex1 -framework OpenGL -framework GLUT
+./ex1
+```
 
+**Features:**
+- RGB colored triangle
+- Simple vertex and color specification
+- Clean white background
+- Press ESC to exit
 
+### Example 2: Circles on Grid (ex2.c)
+Demonstrates drawing multiple circles with different colors on a grid background.
 
+**Compilation and Running:**
+```
+gcc ex2.c -o ex2 -framework OpenGL -framework GLUT
+./ex2
+```
 
+**Features:**
+- Gray background grid
+- Three colored circles (red, green, blue)
+- Demonstrates using GL_TRIANGLE_FAN for circle rendering
+- Press ESC to exit
 
-🎈 Bouncing Ball in OpenGL
-This project is a simple OpenGL and GLUT program that displays a red ball bouncing around the screen.
-The ball starts moving when the user presses the spacebar, and it bounces off the window edges.
-The program uses double buffering for smooth animation.
+### Example 3: Bouncing Ball Animation (ex3.c)
+Interactive animation showing a ball bouncing around the screen boundaries.
 
+**Compilation and Running:**
+```
+gcc ex3.c -o ex3 -framework OpenGL -framework GLUT
+./ex3
+```
 
-🖥️ Features
-White background
+**Features:**
+- Red ball that bounces off window edges
+- Press spacebar to start the animation
+- Demonstrates physics simulation with boundary collision
+- Uses double buffering for smooth animation
+- Press ESC to exit
 
-Red ball that moves smoothly
+## Platform-Specific Compilation
 
-Bounces off window edges
+### macOS
+```
+gcc <filename>.c -o <output> -framework OpenGL -framework GLUT
+```
 
-Starts moving when spacebar is pressed
+### Windows
+```
+gcc <filename>.c -o <output>.exe -lfreeglut -lopengl32 -lglu32
+```
 
-Double buffering to prevent flickering
+### Linux
+```
+gcc <filename>.c -o <output> -lglut -lGL -lGLU
+```
 
-Handles window resizing
-
-📁 Project Structure
-
-
-🛠️ Requirements
-GCC compiler
-
-OpenGL and GLUT libraries
-
-On MacOS, you can use system libraries via frameworks:
-
-OpenGL
-
-GLUT
+## Z-Buffer Information
 
 In OpenGL, the Z-buffer value for each object (or planet in your case) is determined by the object's position in 3D space relative to the camera's viewpoint. Specifically, the Z-buffer value is determined by the Z-coordinate of each object after it has been transformed by the model-view matrix and the perspective projection.
 
