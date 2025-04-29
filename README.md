@@ -97,6 +97,23 @@ gcc ex3.c -o ex3 -framework OpenGL -framework GLUT
 - Uses double buffering for smooth animation
 - Press ESC to exit
 
+### Example 4: 3D Cube (ex4.c)
+A simple 3D cube demonstration using vertex specification.
+
+**Compilation and Running:**
+```
+gcc ex4.c -o ex4 -framework OpenGL -framework GLUT
+./ex4
+```
+
+**Features:**
+- 3D cube with colored vertices
+- Demonstrates 3D geometry with proper depth testing
+- Uses perspective projection
+- Shows basic 3D transformations (translation and rotation)
+- Each vertex has a different color for better visual understanding
+- Press ESC to exit
+
 ## Platform-Specific Compilation
 
 ### macOS
